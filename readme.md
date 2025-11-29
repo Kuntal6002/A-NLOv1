@@ -1,49 +1,50 @@
 🚀 A-NLO — Adaptive Neural Life Orchestrator
 Your Autonomous Financial Agent for Savings, Cashflow, SIP, Investments & Paper Trading
 
-A-NLO is an Agentic AI System that observes, thinks, acts, and improves your financial life automatically.
+A-NLO is an Agentic AI System that observes → thinks → acts → learns to improve your financial life automatically.
 
-A-NLO transforms personal finance from manual to autonomous using a continuous decision-making cycle:
+🌐 What A-NLO Does
 
-1. Observer
+A-NLO transforms personal finance from manual to autonomous, driven by a recurring decision-making loop:
 
-Collects state:
+🔁 The Autonomous Intelligence Cycle
+1. 🛰 Observer
 
-bank balance
+Collects real-time financial state:
 
-expenses
+Bank balance
 
-income
+Expenses & income
 
 SIP status
 
-portfolio
+Portfolio health
 
-risk profile
+Risk profile
 
-market trends
+Market trend & momentum
 
-volatility
+Volatility conditions
 
-2. Planner
+2. 🧠 Planner
 
-Decides:
+Decides the optimal move:
 
 How much to save
 
 SIP vs lump-sum
 
-Whether market conditions allow investment
+Whether market conditions allow investing
 
-Whether to sell
+Whether to buy/sell/hold
 
-Whether to hold
+Target risk level
 
-What risk level to maintain
+Rebalancing needs
 
-3. Executor
+3. 🤖 Executor
 
-Executes actions:
+Executes precise actions:
 
 Saves money
 
@@ -51,72 +52,69 @@ Updates cashflow
 
 Buys/Sells simulated assets
 
-Places real Alpaca Paper Trades (optional)
+Places Alpaca Paper Trades (optional)
 
-Logs every decision
+Logs every decision transparently
 
-4. Reward Engine
+4. 🎯 Reward Engine
 
-Evaluates:
+Evaluates progress:
 
-portfolio growth
+Portfolio growth
 
-cashflow stability
+Cashflow stability
 
-reduced volatility
+Volatility reduction
 
-emergency buffer health
+Emergency buffer health
 
-Then repeats automatically.
-
-This loop makes A-NLO a true Agentic AI system, not just an LLM.
+Then the system loops automatically, making A-NLO a true Agentic AI, not just another LLM app.
 
 🧩 Key Features
-✔ Autonomous Daily Cycle (Agentic Engine)
+✔ Autonomous Daily Cycle
 
-Runs automatically:
+A-NLO runs automatically:
 
 Updates economy
 
 Recalculates cashflow
 
-Makes decisions
+Makes investment decisions
 
-Invests or holds
+Executes trades
 
-Logs the reasoning
+Logs reasoning
 
 ✔ Cashflow Engine (Groww-style)
-
 Incoming:
 
-income
+Salary / income
 
 SIP credits
 
-dividends
+Dividends
 
-sell gains
+Sell gains
 
 Outgoing:
 
-buy trades
+Buy trades
 
 SIP auto-debits
 
-expenses
+Expenses
 
-withdrawals
+Withdrawals
 
 Visuals:
 
-inflow/outflow bar chart
+Inflow/Outflow bar chart
 
-running cash-balance line chart
+Running cash-balance line chart
 
 ✔ Investment & Trading Engine
 
-SIP engine
+SIP automation
 
 Lump-sum allocation
 
@@ -132,9 +130,9 @@ Risk-adjusted decisions
 
 Holdings
 
-Avg Buy Price
+Average buy price
 
-Absolute & Daily P/L
+Absolute & daily P/L
 
 Allocation %
 
@@ -143,6 +141,8 @@ Growth chart
 SIP tracking
 
 ✔ Agent Insights Panel
+
+Shows the AI’s thinking:
 
 Market trend
 
@@ -160,9 +160,9 @@ Suggested SIP amount
 
 Reason for decision
 
-✔ Alpaca Paper Trading + LLM MCP
+✔ Alpaca Paper Trading + LLM MCP (Optional)
 
-Your app supports:
+Supports natural-language commands like:
 
 “Buy 10 AAPL”
 
@@ -172,9 +172,9 @@ Your app supports:
 
 “Show my positions”
 
-LLM interprets the command ➜ MCP executes trade ➜ results appear inside app.
+LLM → MCP → Execution → UI Update
 
-This is optional and isolated (does NOT mix with simulated engine) so judges won't call it unfair.
+This system is isolated from the simulated engine — so judges won’t consider it unfair.
 
 🏗 System Architecture
 frontend/
@@ -209,21 +209,21 @@ agents/
 
 🔄 How the Autonomous Cycle Works
 
-/run_cycle endpoint is called (automatically every X seconds or manually)
+/run_cycle is triggered (auto or manual)
 
-observer builds state
+Observer collects state
 
-planner decides best financial action
+Planner selects best action
 
-executor performs the action
+Executor performs the action
 
-reward evaluates
+Reward Engine evaluates
 
 Log is saved
 
-UI updates automatically
+UI updates live
 
-You can configure auto-run by using:
+Supports auto-run using:
 
 Cron
 
@@ -231,54 +231,49 @@ Background thread
 
 Streamlit timer
 
-Frontend periodic polling
+Frontend polling
 
 📡 Alpaca Paper Trading Flow
-User → LLM → Command ("Buy 10 AAPL")
-↓
-LLMTrader interprets → {"symbol": "AAPL", "qty": 10, "side": "buy"}
-↓
-AlpacaMCP executes actual trade on paper account
-↓
-Backend logs → Frontend updates UI
+User Command → LLM → Parsed Instruction
+            ↓
+   LLMTrader → {"symbol", "qty", "side"}
+            ↓
+        AlpacaMCP executes
+            ↓
+     Backend logs → UI refresh
 
 
-This brings real trading simulation into your dashboard.
+This brings realistic trading simulation into your dashboard.
 
-🚀 How to Run
-1. Backend
+🚀 How to Run the Project
+1. Backend Setup
 
-Requires Python 3.12 (NOT 3.13).
-Start it:
+Requires Python 3.12
 
 cd backend
 source myenv/bin/activate
 uvicorn main:app --reload
 
 
-Backend is now live at:
-
-http://localhost:8000
+Backend runs at: http://localhost:8000
 
 2. Frontend
 cd frontend
 streamlit run app.py
 
 
-Dashboard opens at:
+Dashboard opens at: http://localhost:8501
 
-http://localhost:8501
-
-🧪 Endpoints Overview
+🧪 API Endpoints Overview
 Endpoint	Purpose
 /state	Current agent state
-/portfolio	Investment portfolio
-/market	Market simulation data
+/portfolio	Portfolio data
+/market	Market simulation
 /transactions	Cashflow transactions
-/logs	Agent decisions
-/run_cycle	Run 1 agent cycle
+/logs	Agent reasoning logs
+/run_cycle	Run 1 autonomous cycle
 /alpaca/command	Natural-language trading
 /alpaca/buy	Buy stock (paper)
 /alpaca/sell	Sell stock
-/alpaca/account	Alpaca balance
+/alpaca/account	Account info
 /alpaca/positions	Open positions
